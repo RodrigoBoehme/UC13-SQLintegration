@@ -31,4 +31,44 @@ export class PetModel{
         //Se não existir: retorna null
         return rows.length ? rows[0]: null
     }
+    //Criar
+    static async create(
+        nome:string,
+        especie:string,
+        idade:number,
+        tutor:string
+    ){
+      //INSERT INTO -> insere dados na tabela
+      //VALUES(?, ?, ?, ?)=> valores parametrizados
+      await pool.execute(
+        "INSERT INTO pets( nome, especie, idade, tutor) VALUES(?,?,?,?)",[nome,especie,idade,tutor]
+      )
+      //Não retorna nada aqui, apenas grava no banco 
+    }
+    //Atualiza um pet existente
+    static async update(
+        id:number,
+        nome:string,
+        especie:string,
+        idade:number,
+        tutor:string
+    ){
+        //UPDATE -> altera os dados existentes
+        //SET -> define novos valores
+        //WHERE id = ? -> garante que só um pet será atualizado
+        await pool.execute(
+            "UPDATE pets SET nome = ?, especie = ?,idade = ?, tutor = ? WHERE id =?",[nome,especie,idade,tutor,id]
+        )
+        //Também não retorna nada, apenas executa a atualização
+    }
+    //Remove um pet pelo id
+    static async remove(id:number){
+        //DELETE -> remove do banco
+        const [result]:any=await pool.execute(
+            "DELETE FROM pets WHERE id=?",[id]
+        )
+        //result.addectedRows informa quantas linhas foram apagadas
+        //Se for maior que 0, deletou com sucesso
+        return result.affectedRows>0
+    }
 }
