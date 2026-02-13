@@ -12,7 +12,7 @@ export class PetModel{
         // SELECT * - pega todas as colunas
         // ORDER BY id DESC ordena do maior id para o menor (mais recente primeiro)
         const [rows]=await pool.execute(
-            "SELECT * FROM pets ORDER BY od DESC"
+            "SELECT * FROM pets ORDER BY id DESC"
         )
         //Retorna as linhas encontradas 
         return rows
@@ -22,7 +22,7 @@ export class PetModel{
         //Executa um SELECT com parâmetro
         //O ? é um placholder para evitar SQL Injection
         const [rows]:any=await pool.execute(
-            "SELECT * FROM pets WHERE id=?}",[id]
+            "SELECT * FROM pets WHERE id=?",[id]
             //neste caso substitui o ? pelo valor do id 
         )
         //O banco sempre retorna lista
@@ -41,7 +41,7 @@ export class PetModel{
       //INSERT INTO -> insere dados na tabela
       //VALUES(?, ?, ?, ?)=> valores parametrizados
       await pool.execute(
-        "INSERT INTO pets( nome, especie, idade, tutor) VALUES(?,?,?,?)",[nome,especie,idade,tutor]
+        "INSERT INTO pets(nome, especie, idade, tutor) VALUES( ?, ?, ?, ?)",[nome,especie,idade,tutor]
       )
       //Não retorna nada aqui, apenas grava no banco 
     }
