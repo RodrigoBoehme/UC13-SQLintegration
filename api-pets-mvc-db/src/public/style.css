@@ -1,0 +1,101 @@
+/* ====== BASE ====== */
+body {
+  margin: 0;                 /* Remove a margem padrão */
+  font-family: Arial;        /* Fonte simples e legível */
+  background: #f5f6fa;       /* Fundo clarinho */
+}
+
+/* ====== TOPO ====== */
+.topo {
+  background: #0f766e;       /* Verde */
+  color: white;              /* Texto branco */
+  padding: 20px;             /* Espaço interno */
+  text-align: center;        /* Centraliza o texto */
+}
+
+/* ====== LAYOUT ====== */
+.container {
+  max-width: 900px;          /* Largura máxima */
+  margin: auto;              /* Centraliza */
+  padding: 20px;             /* Espaçamento */
+}
+
+.card {
+  background: white;         /* Fundo do card */
+  padding: 20px;             /* Espaço interno */
+  border-radius: 10px;       /* Cantos arredondados */
+  margin-bottom: 20px;       /* Espaço abaixo */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Sombra leve */
+}
+
+/* ====== FORM ====== */
+input, select {
+  padding: 8px;              /* Espaço interno */
+  width: 100%;               /* Ocupa largura toda */
+  margin: 5px 0;             /* Espaço vertical */
+  border: 1px solid #ddd;    /* Borda leve */
+  border-radius: 8px;        /* Cantos arredondados */
+}
+
+.linha-botoes {
+  display: flex;             /* Botões em linha */
+  gap: 10px;                 /* Espaço entre eles */
+  margin-top: 10px;          /* Espaço acima */
+}
+
+/* ====== TABELA ====== */
+table {
+  width: 100%;
+  border-collapse: collapse; /* Junta as bordas */
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+/* ====== BOTÕES (IMPORTANTE) ====== */
+.btn {
+  padding: 8px 12px;
+  background: gray;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+
+  /* deixa <button> e <a> com o mesmo comportamento */
+  display: inline-block;
+}
+
+/* Se um dia você usar <a class="btn">, tira sublinhado */
+a.btn {
+  text-decoration: none;
+}
+
+/* Botão principal */
+.primary {
+  background: #0f766e;
+}
+
+/* Botão de perigo */
+.danger {
+  background: crimson;
+}
+
+/* Efeito hover pra ficar mais "profissa" */
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Espaço entre botões dentro da tabela */
+td .btn {
+  margin-right: 8px;
+}
+
+/* Mensagem */
+.msg {
+  margin-top: 10px;
+  font-weight: bold;
+}

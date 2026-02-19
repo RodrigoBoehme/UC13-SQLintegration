@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD Pets</title>
+  <link rel="icon" type="image/x-icon" href="Artemundo.ico">
+
+  <!-- Conecta o CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- TOPO DO SITE -->
+  <header class="topo">
+    <h1>🐶😼 CRUD de Pets do TDS 👩‍💻</h1>
+    <p>Front-end (HTML/CSS/JS) consumindo API Node + MySQL</p>
+  </header>
+
+  <main class="container">
+
+    <!-- FORMULÁRIO -->
+    <section class="card">
+      <h2 id="tituloForm">Cadastrar Pet</h2>
+
+      <form id="formPet">
+        <!-- Campo escondido: se tiver valor aqui, é edição -->
+        <input type="hidden" id="id">
+
+        <label>
+          Nome
+          <input id="nome" required minlength="2" placeholder="Ex: Luna">
+        </label>
+
+        <label>
+          Espécie
+          <select id="especie" required>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+            <option value="outro">Outro</option>
+          </select>
+        </label>
+
+        <label>
+          Idade
+          <input id="idade" type="number" min="0" value="0" required>
+        </label>
+
+        <label>
+          Tutor
+          <input id="tutor" required minlength="2" placeholder="Ex: Dalvana">
+        </label>
+
+        <!-- Linha de botões -->
+        <div class="linha-botoes">
+          <!-- type="submit" envia o formulário -->
+          <button class="btn primary" type="submit">Salvar</button>
+
+          <!-- type="button" NÃO envia o formulário -->
+          <button class="btn" type="button" id="btnCancelar" hidden>Cancelar</button>
+        </div>
+
+        <!-- Mensagem do sistema (erros/sucesso) -->
+        <p id="msg" class="msg"></p>
+      </form>
+    </section>
+
+    <!-- LISTA -->
+    <section class="card">
+      <h2>Lista de Pets</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Espécie</th>
+            <th>Idade</th>
+            <th>Tutor</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+
+        <!-- JS vai preencher as linhas aqui -->
+        <tbody id="tbodyPets"></tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <!-- Conecta o JavaScript -->
+  <script src="app.js"></script>
+</body>
+</html>
